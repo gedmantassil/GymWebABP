@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\aspnet-core",
+    "\\aspnet-core\\src",
+    "\\aspnet-core\\src\\Gymzii.Domain.Shared",
+    "\\aspnet-core\\src\\Gymzii.Domain.Shared\\Localization",
+    "\\aspnet-core\\src\\Gymzii.Domain.Shared\\Localization\\Gymzii",
+    "\\aspnet-core\\src\\Gymzii.HttpApi.Host"
+  ],
+  "SelectedNode": "\\aspnet-core\\src\\Gymzii.HttpApi.Host\\Gymzii.HttpApi.Host.csproj",
+  "PreviewInSolutionExplorer": false
+}
