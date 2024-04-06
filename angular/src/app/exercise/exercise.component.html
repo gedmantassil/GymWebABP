@@ -1,0 +1,76 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col col-md-6">
+        <h5 class="card-title">
+          {{ '::Menu:Exercises' | abpLocalization }}
+        </h5>
+      </div>
+      <div class="text-end col col-md-6">
+        <div class="text-lg-end pt-2">
+          <button id="create" class="btn btn-primary" type="button" (click)="createExercise()">
+            <i class="fa fa-plus me-1"></i>
+            <span>{{ "::NewExercise" | abpLocalization }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <ngx-datatable [rows]="exercise.items" [count]="exercise.totalCount" [list]="list" default>
+      <ngx-datatable-column [name]="'::Name' | abpLocalization" prop="name"></ngx-datatable-column>
+      <ngx-datatable-column [name]="'::Type' | abpLocalization" prop="type">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ '::Enum:MuscleType.' + row.type | abpLocalization }}
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column [name]="'::Max' | abpLocalization" prop="maxWeight">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          {{ row.maxWeight | number }}
+        </ng-template>
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+</div>
+
+<abp-modal [(visible)]="isModalOpen">
+  <ng-template #abpHeader>
+    <h3>{{ '::NewExercise' | abpLocalization }}</h3>
+  </ng-template>
+
+  <ng-template #abpBody>
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <div class="mt-2">
+        <label for="exercise-name">Name</label><span> * </span>
+        <input type="text" id="exercise-name" class="form-control" formControlName="name" autofocus />
+      </div>
+  
+      <div class="mt-2">
+        <label for="exercise-type">Type</label><span> * </span>
+        <select class="form-control" id="exercise-type" formControlName="type">
+          <option [ngValue]="null">Select a muscle type</option>
+          <option [ngValue]="type.value" *ngFor="let type of muscleTypes"> {{ '::Enum:MuscleType.' + type.value | abpLocalization }}</option>
+        </select>
+      </div>
+  
+      <div class="mt-2">
+        <label>Max Weight</label><span> * </span>
+        <input
+          #datepicker="ngbDatepicker"
+          class="form-control"
+          name="datepicker"
+          formControlName="publishDate"
+          ngbDatepicker
+          (click)="datepicker.toggle()"
+        />
+      </div>
+    </form>
+  </ng-template>
+
+  <ng-template #abpFooter>
+    <button type="button" class="btn btn-secondary" abpClose>
+      {{ '::Close' | abpLocalization }}
+    </button>
+  </ng-template>
+</abp-modal>
