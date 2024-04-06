@@ -1,0 +1,23 @@
+{
+  "culture": "lt-LT",
+  "texts": {
+    "Menu:Home": "Namai",
+    "Welcome": "Sveiki",
+    "LongWelcomeMessage": "",
+    "testMessage": "",
+    "Name": "Pavadinimas",
+    "Type": "Tipas",
+    "Menu:Workouts": "Treniruotė",
+    "Menu:Exercises": "Progresas",
+    "Enum:MuscleType.0": "Krutinė",
+    "Enum:MuscleType.1": "Nugara",
+    "Enum:MuscleType.2": "Bicepsas",
+    "Enum:MuscleType.3": "Tricepsas",
+    "Enum:MuscleType.4": "Presas",
+    "Enum:MuscleType.5": "Kojos",
+    "Enum:MuscleType.6": "Pečiai",
+    "Enum:MuscleType.7": "Nepasirinkta",
+    "Max": "Didžiausias svoris",
+
+  }
+}

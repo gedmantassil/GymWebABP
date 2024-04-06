@@ -4,6 +4,20 @@
     "Menu:Home": "Home",
     "Welcome": "Welcome",
     "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
-    "testMessage": "test"
+    "testMessage": "test",
+    "Menu:Workouts": "Workout",
+    "Menu:Exercises": "Progress tracking",
+    "Enum:MuscleType.0": "Chest",
+    "Enum:MuscleType.1": "Back",
+    "Enum:MuscleType.2": "Biceps",
+    "Enum:MuscleType.3": "Triceps",
+    "Enum:MuscleType.4": "Abdominals",
+    "Enum:MuscleType.5": "Legs",
+    "Enum:MuscleType.6": "Shoulders",
+    "Enum:MuscleType.7": "Undefinied",
+    "Max": "Max Weight",
+    "NewExercise": "New Exercise",
+    "Close": "Close",
   }
+
 }

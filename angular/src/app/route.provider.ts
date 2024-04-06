@@ -15,6 +15,19 @@ function configureRoutes(routesService: RoutesService) {
         order: 1,
         layout: eLayoutType.application,
       },
+      {
+        path: '/workouts',
+        name: '::Menu:Workouts',
+        iconClass: 'fas fa-dumbbell',
+        order: 2,
+        layout: eLayoutType.application,
+      },
+      {
+        path: '/exercises',
+        name: '::Menu:Exercises',
+        parentName: '::Menu:Workouts',
+        layout: eLayoutType.application,
+      },
     ]);
   };
 }
