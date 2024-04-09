@@ -18,6 +18,11 @@
     "Enum:MuscleType.6": "Pečiai",
     "Enum:MuscleType.7": "Nepasirinkta",
     "Max": "Didžiausias svoris",
-
+    "NewExercise": "Naujas pratimas",
+    "Close": "Uždaryti",
+    "Actions": "Veiksmai",
+    "Edit": "Pakeisti",
+    "AreYouSureToDelete": "Paspausdami Yes, jūs visam ištrinsite pratimą",
+    "Delete": "Ištrinti",
   }
 }
