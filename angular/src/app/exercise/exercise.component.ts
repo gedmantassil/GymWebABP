@@ -1,7 +1,8 @@
 import { ListService, PagedResultDto } from '@abp/ng.core';
 import { Component, OnInit } from '@angular/core';
-import { ExerciseService, ExerciseDto, muscleTypeOptions, MuscleType } from '@proxy/exercises';
+import { ExerciseService, ExerciseDto, muscleTypeOptions } from '@proxy/exercises';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'; 
+import { ConfirmationService, Confirmation } from '@abp/ng.theme.shared';
 
 @Component({
   selector: 'app-exercise',
@@ -11,12 +12,20 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class ExerciseComponent implements OnInit {
   exercise = { items:[], totalCount: 0} as PagedResultDto<ExerciseDto>;
+
+  selectedExercise = {} as ExerciseDto;
+
   form: FormGroup;
-  exerciseTypes = muscleTypeOptions;
+  muscleTypes = muscleTypeOptions;
 
   isModalOpen = false;
 
-  constructor(public readonly list: ListService, private exerciseService: ExerciseService, private fb: FormBuilder){}
+  constructor(
+    public readonly list: ListService, 
+    private exerciseService: ExerciseService, 
+    private fb: FormBuilder,
+    private confirmation: ConfirmationService
+  ){}
 
   ngOnInit() {
     const exerciseStreamCreator = (query) => this.exerciseService.getList(query);
@@ -27,14 +36,23 @@ export class ExerciseComponent implements OnInit {
   }
 
   createExercise(){
+    this.selectedExercise = {} as ExerciseDto;
     this.buildForm();
     this.isModalOpen = true;
   }
+  editExercise(id: string){
+    this.exerciseService.get(id).subscribe((exercise) => {
+      this.selectedExercise = exercise;
+      this.buildForm();
+      this.isModalOpen = true;
+    });
+  }
+
   buildForm(){
     this.form = this.fb.group({
-      name: ['', Validators.required],
-      MuscleType: [null, Validators.required],
-      maxWeight: [null, Validators.required],
+      name: [this.selectedExercise.name || '', Validators.required],
+      type: [this.selectedExercise.type || null, Validators.required],
+      maxWeight: [this.selectedExercise.maxWeight || null, Validators.required],
 
     });
   }
@@ -43,11 +61,22 @@ export class ExerciseComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
+    const request = this.selectedExercise.id
+      ? this.exerciseService.update(this.selectedExercise.id, this.form.value)
+      : this.exerciseService.create(this.form.value);
 
-    this.exerciseService.create(this.form.value).subscribe(() => {
+    request.subscribe(() => {
       this.isModalOpen = false;
       this.form.reset();
       this.list.get();
+    });
+  }
+
+  delete(id: string){
+    this.confirmation.warn('::AreYouSureToDelete', '::AreYouSure').subscribe((status) => {
+      if (status == Confirmation.Status.confirm){
+        this.exerciseService.delete(id).subscribe(() => this.list.get());
+      }
     });
   }
 
