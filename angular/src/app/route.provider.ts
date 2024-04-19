@@ -28,6 +28,12 @@ function configureRoutes(routesService: RoutesService) {
         parentName: '::Menu:Workouts',
         layout: eLayoutType.application,
       },
+      {
+        path: '/findExercises',
+        name: '::Menu:FindExercises',
+        parentName: '::Menu:Workouts',
+        layout: eLayoutType.application,
+      },
     ]);
   };
 }
