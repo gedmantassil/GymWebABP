@@ -1,0 +1,34 @@
+.container {
+    text-align: center;
+    display: flex;
+    align-items: flex-start; /* Align items to the start of the container vertically */
+  }
+  h1{
+    text-align: center;
+    width: 100%;
+  }
+  .image-container {
+    position: fixed;
+    display: inline-block; /* Make the container fit the size of the image */
+    transform: translate(350px, 18px); 
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .overlay-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+  
+  /* This class isn't strictly necessary unless you have other specific styles for it */
+  .overlay-svg path {
+    transition: fill 0.2s; /* Smooth transition for color change */
+  }
+  
+  /* ... your existing styles ... */
