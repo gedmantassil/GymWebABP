@@ -21,12 +21,14 @@ function configureRoutes(routesService: RoutesService) {
         iconClass: 'fas fa-dumbbell',
         order: 2,
         layout: eLayoutType.application,
+        requiredPolicy: 'Gymzii.Exercises'
       },
       {
         path: '/exercises',
         name: '::Menu:Exercises',
         parentName: '::Menu:Workouts',
         layout: eLayoutType.application,
+        requiredPolicy: 'Gymzii.Exercises',
       },
       {
         path: '/findExercises',
