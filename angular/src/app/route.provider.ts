@@ -36,6 +36,13 @@ function configureRoutes(routesService: RoutesService) {
         parentName: '::Menu:Workouts',
         layout: eLayoutType.application,
       },
+      {
+        path: '/contacts',
+        name: '::Menu:Contacts',
+        iconClass: 'fas fa-address-book',
+        order: 3,
+        layout: eLayoutType.application,
+      }
     ]);
   };
 }

@@ -25,7 +25,8 @@
     "Permission:Exercises": "Exercise Management",
     "Permission:Exercises.Create": "Creating new exercises",
     "Permission:Exercises.Edit": "Editing the exercises",
-    "Permission:Exercises.Delete": "Deleting the exercises"
+    "Permission:Exercises.Delete": "Deleting the exercises",
+    "Menu:Contacts": "Contacts", 
   }
 
 }
