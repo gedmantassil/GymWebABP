@@ -63,7 +63,7 @@ export class ExerciseComponent implements OnInit {
     }
     const request = this.selectedExercise.id
       ? this.exerciseService.update(this.selectedExercise.id, this.form.value)
-      : this.exerciseService.create(this.form.value);
+      : this.exerciseService.createOrUpdateExercise(this.form.value);
 
     request.subscribe(() => {
       this.isModalOpen = false;

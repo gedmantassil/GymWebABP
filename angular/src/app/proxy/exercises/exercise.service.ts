@@ -19,6 +19,15 @@ export class ExerciseService {
     { apiName: this.apiName,...config });
   
 
+  createOrUpdateExercise = (input: CreateUpdateExerciseDto, config?: Partial<Rest.Config>) =>
+    this.restService.request<any, ExerciseDto>({
+      method: 'POST',
+      url: '/api/app/exercise/or-update-exercise',
+      body: input,
+    },
+    { apiName: this.apiName,...config });
+  
+
   delete = (id: string, config?: Partial<Rest.Config>) =>
     this.restService.request<any, void>({
       method: 'DELETE',
