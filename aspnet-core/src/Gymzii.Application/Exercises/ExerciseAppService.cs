@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
@@ -18,9 +19,36 @@ namespace Gymzii.Exercises
                 CreateUpdateExerciseDto>, 
                 IExerciseAppService
     {
-        public ExerciseAppService(IRepository<Exercise, Guid> repository) :base(repository)
+		private readonly IRepository<Exercise, Guid> _exerciseRepository;
+
+		public ExerciseAppService(IRepository<Exercise, Guid> repository) :base(repository)
         {
-        
-        }
-    }
+			_exerciseRepository = repository;
+		}
+		public async Task<ExerciseDto> CreateOrUpdateExerciseAsync(CreateUpdateExerciseDto input)
+		{
+			Exercise exercise;
+			var existingExercise = await _exerciseRepository.FirstOrDefaultAsync(e => e.Name == input.Name);
+
+			if (existingExercise != null)
+			{
+				if (input.MaxWeight > existingExercise.MaxWeight)
+				{
+					existingExercise.MaxWeight = input.MaxWeight;
+					exercise = await _exerciseRepository.UpdateAsync(existingExercise);
+				}
+				else
+				{
+					return ObjectMapper.Map<Exercise, ExerciseDto>(existingExercise);
+				}
+			}
+			else
+			{
+				exercise = ObjectMapper.Map<CreateUpdateExerciseDto, Exercise>(input);
+				await _exerciseRepository.InsertAsync(exercise);
+			}
+
+			return ObjectMapper.Map<Exercise, ExerciseDto>(exercise);
+		}
+	}
 }

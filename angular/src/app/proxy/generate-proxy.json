@@ -1659,6 +1659,43 @@
             }
           ],
           "actions": {
+            "CreateOrUpdateExerciseAsyncByInput": {
+              "uniqueName": "CreateOrUpdateExerciseAsyncByInput",
+              "name": "CreateOrUpdateExerciseAsync",
+              "httpMethod": "POST",
+              "url": "api/app/exercise/or-update-exercise",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Gymzii.Exercises.CreateUpdateExerciseDto, Gymzii.Application.Contracts",
+                  "type": "Gymzii.Exercises.CreateUpdateExerciseDto",
+                  "typeSimple": "Gymzii.Exercises.CreateUpdateExerciseDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Gymzii.Exercises.CreateUpdateExerciseDto",
+                  "typeSimple": "Gymzii.Exercises.CreateUpdateExerciseDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Gymzii.Exercises.ExerciseDto",
+                "typeSimple": "Gymzii.Exercises.ExerciseDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Gymzii.Exercises.ExerciseAppService"
+            },
             "CreateAsyncByInput": {
               "uniqueName": "CreateAsyncByInput",
               "name": "CreateAsync",
