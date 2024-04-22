@@ -99,4 +99,28 @@ public abstract class ExercisesAppService_Tests<TStartupModule> : GymziiApplicat
 		result.Name.ShouldBe(input.Name);
 		result.MaxWeight.ShouldBe(input.MaxWeight);
 	}
+	[Fact]
+	public async Task Should_Correctly_Map_Fields_When_Inserting_New_Exercise()
+	{
+		// Arrange
+		var exerciseAppService = _userAppService;
+		var exerciseRepository = Substitute.For<IRepository<Exercise, Guid>>();
+
+		var input = new CreateUpdateExerciseDto { Name = "Unique Exercise", Type = MuscleType.Legs, MaxWeight = 150 };
+		Exercise nullExercise = null;
+		exerciseRepository.FirstOrDefaultAsync(e => e.Name == input.Name).Returns(nullExercise);
+
+		exerciseRepository.InsertAsync(Arg.Do<Exercise>(exercise =>
+		{
+			exercise.Name.ShouldBe(input.Name);
+			exercise.Type.ShouldBe(input.Type);
+			exercise.MaxWeight.ShouldBe(input.MaxWeight);
+		})).Returns(Task.FromResult(new Exercise()));
+
+		// Act
+		var result = await exerciseAppService.CreateOrUpdateExerciseAsync(input);
+
+		// Assert
+		result.ShouldNotBeNull();
+	}
 }
