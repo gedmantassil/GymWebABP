@@ -1,4 +1,5 @@
 ﻿using Gymzii.Exercises;
+using Gymzii.Contacts;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
@@ -27,6 +28,7 @@ public class GymziiDbContext :
 {
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
     public DbSet<Exercise> Exercises { get; set; }
+    public DbSet<Contact> Contacts { get; set; }
 
     #region Entities from the modules
 
@@ -86,5 +88,13 @@ public class GymziiDbContext :
             b.ConfigureByConvention(); //auto configure for the base class props
             b.Property(x => x.Name).IsRequired().HasMaxLength(128);
         });
-    }
+
+		builder.Entity<Contact>(b =>
+		{
+			b.ToTable(GymziiConsts.DbTablePrefix + "Contact",
+				GymziiConsts.DbSchema);
+			b.ConfigureByConvention(); //auto configure for the base class props
+			b.Property(x => x.Name).IsRequired().HasMaxLength(128);
+		});
+	}
 }

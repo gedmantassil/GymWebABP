@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: 'exercises', loadChildren: () => import('./exercise/exercise.module').then(m => m.ExerciseModule) },
   { path: 'exercises', loadChildren: () => import('./exercise-selection/exercise-selection.module').then(m => m.ExerciseSelectionModule) },
   { path: 'findExercises', loadChildren: () => import('./exercise-selection/exercise-selection.module').then(m => m.ExerciseSelectionModule) },
+  { path: 'contacts', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
 ];
 
 @NgModule({
