@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
+using Gymzii.Permissions;
 
 namespace Gymzii.Exercises
 {
@@ -24,6 +25,11 @@ namespace Gymzii.Exercises
 		public ExerciseAppService(IRepository<Exercise, Guid> repository) :base(repository)
         {
 			_exerciseRepository = repository;
+			GetPolicyName = GymziiPermissions.Exercises.Default;
+			GetListPolicyName = GymziiPermissions.Exercises.Default;
+			CreatePolicyName = GymziiPermissions.Exercises.Create;
+			UpdatePolicyName = GymziiPermissions.Exercises.Edit;
+			DeletePolicyName = GymziiPermissions.Exercises.Delete;
 		}
 		public async Task<ExerciseDto> CreateOrUpdateExerciseAsync(CreateUpdateExerciseDto input)
 		{
@@ -51,4 +57,6 @@ namespace Gymzii.Exercises
 			return ObjectMapper.Map<Exercise, ExerciseDto>(exercise);
 		}
 	}
-}
+ }
+    
+

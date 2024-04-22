@@ -20,6 +20,11 @@
     "Close": "Close",
     "Actions": "Actions",
     "AreYouSureToDelete": "By pressing Yes you will permanently delete exercise",
+    "Permission:Gymzii": "Gymzii",
+    "Permission:Exercises": "Exercise Management",
+    "Permission:Exercises.Create": "Creating new exercises",
+    "Permission:Exercises.Edit": "Editing the exercises",
+    "Permission:Exercises.Delete": "Deleting the exercises"
   }
 
 }
