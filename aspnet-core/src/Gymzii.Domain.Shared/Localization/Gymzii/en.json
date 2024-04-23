@@ -17,7 +17,7 @@
     "Enum:MuscleType.7": "Undefinied",
     "Max": "Max Weight",
     "NewExercise": "New Exercise",
-    "Menu:FindExercises": "Find Exercises", 
+    "Menu:FindExercises": "Find Exercises",
     "Close": "Close",
     "Actions": "Actions",
     "AreYouSureToDelete": "By pressing Yes you will permanently delete exercise",
@@ -26,7 +26,12 @@
     "Permission:Exercises.Create": "Creating new exercises",
     "Permission:Exercises.Edit": "Editing the exercises",
     "Permission:Exercises.Delete": "Deleting the exercises",
-    "Menu:Contacts": "Contacts", 
+    "Menu:Contacts": "Contacts",
+    "Name": "Name",
+    "Enum:ContactRole.0": "Frontend Developer",
+    "Enum:ContactRole.1": "Backend Developer",
+    "Enum:ContactRole.2": "Tester",
+    "Enum:ContactRole.3": "Undefined"
   }
 
 }

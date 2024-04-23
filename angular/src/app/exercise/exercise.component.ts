@@ -36,6 +36,7 @@ export class ExerciseComponent implements OnInit {
   }
 
   createExercise(){
+    debugger;
     this.selectedExercise = {} as ExerciseDto;
     this.buildForm();
     this.isModalOpen = true;
