@@ -1,9 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ExerciseService, ExerciseDto, muscleTypeOptions, MuscleType } from '@proxy/exercises';
 
-interface MuscleGroup {
-  name: string;
-  exercises: string[];
-} 
+ 
 
 @Component({
   selector: 'app-exercise-selection',
@@ -11,9 +9,16 @@ interface MuscleGroup {
   styleUrl: './exercise-selection.component.scss'
 })
 
-export class ExerciseSelectionComponent {
-  isHeadHighlighted: boolean = true;
-  isSixPackHighlighted: boolean = true;
+export class ExerciseSelectionComponent implements OnInit{
+  selectedMuscleGroup: MuscleType | null = null;
+  showTable = false;
+  allExercises: ExerciseDto[] = [];
+  exercises: ExerciseDto[] = [];
+  muscleTypes = muscleTypeOptions;  
+
+
+  isHeadHighlighted: boolean = false;
+  isSixPackHighlighted: boolean = false;
   isBicepHighlighted: boolean = false;
   isTrapsHighlighted: boolean = false;
   isLegsHighlighted: boolean= false;
@@ -32,21 +37,18 @@ export class ExerciseSelectionComponent {
   isAbsHighlighted: boolean= false;
   isObliquesHighlighted: boolean= false;
 
-  selectedMuscleGroup?: MuscleGroup;
 
-  // List of exercises for each muscle group
-  muscleGroupExercises: { [key: string]: string[] } = {
-    biceps: ['Curl', 'Hammer Curl', 'Concentration Curl'],
-    tricep: ['Tricep Pushdown', 'Overhead Tricep Extension', 'Skull Crushers'],
-    traps: ['Deadlift', 'Schruggs'],
-    chest: ['Bench press', 'Incline press', 'Chest Fleyes', 'Push ups'],
-    shoulder: ['Military press', 'Arnold press', 'Dumbell raises'],
-    midback: ['Dumbell rows', 'Cable rows', 'Deadlift'],
-    hamstring: ['Deadlift', 'Hamstring curls'],
-    // ...other muscle groups...
+  muscleGroupMapping: { [key: string]: MuscleType } = {
+    'Chest': MuscleType.Chest,
+    'Biceps': MuscleType.Biceps,
+    'Triceps': MuscleType.Triceps,
+    'Back': MuscleType.Back,
+    'Abdominals': MuscleType.Abdominals,
+    'Legs': MuscleType.Legs,
+    'Shoulders': MuscleType.Shoulders,
   };
 
-  highlight(part: string) {
+  highlight1(part: string) {
     if (part === 'head') {
       this.isHeadHighlighted = true;
     } else if (part === 'six-pack') {
@@ -105,6 +107,7 @@ export class ExerciseSelectionComponent {
       this.isObliquesHighlighted = true;
     }
   }
+  
 
   unhighlight(part: string) {
     if (part === 'head') {
@@ -166,19 +169,58 @@ export class ExerciseSelectionComponent {
   }
 
 
-  showTable: boolean = false;
+ 
+  constructor(private exerciseService: ExerciseService) {}
 
-  onMuscleGroupClick(part: string) {
-    this.showTable = true; 
-    this.selectedMuscleGroup = {
-      name: part.charAt(0).toUpperCase() + part.slice(1), // Capitalize the first letter
-      exercises: this.muscleGroupExercises[part] || []
-    };
+  ngOnInit() {
+    this.fetchAllExercises();
+  }
+
+ 
+  fetchAllExercises() {
+    this.exerciseService.getList({ maxResultCount: 1000 }).subscribe({
+      next: (response) => {
+        this.allExercises = response.items;
+      },
+      error: (error) => {
+        console.error('Error fetching exercises:', error);
+      }
+    });
+  }
+
+  filterExercisesByMuscleType(muscleType: MuscleType) {
+    this.exercises = this.allExercises.filter(exercise => exercise.type === muscleType);
+    
   }
   
-  closeTable() {
-      this.showTable = false; // Hide the table when the close button is clicked
-    }
-    
+  onMuscleGroupClick(muscleGroup: string) {
+    const muscleType: MuscleType = this.muscleGroupMapping[muscleGroup];
+    if (muscleType !== undefined) { 
+      this.selectedMuscleGroup = muscleType;
+      this.showTable = true;
+      this.filterExercisesByMuscleType(muscleType);
+    } 
+  }
   
+
+  closeTable() {
+    this.selectedMuscleGroup = null;
+    this.showTable = false;
+    this.exercises = []; 
+   
+  }
+
+  getMuscleGroupName(muscleGroup: MuscleType): string {
+    const nameMap = {
+      [MuscleType.Chest]: 'Chest',
+      [MuscleType.Back]: 'Back',
+      [MuscleType.Biceps]: 'Biceps',
+      [MuscleType.Triceps]: 'Triceps',
+      [MuscleType.Abdominals]: 'Abdominals',
+      [MuscleType.Legs]: 'Legs',
+      [MuscleType.Shoulders]: 'Shoulders',
+    };
+  
+    return nameMap[muscleGroup];
+  }
 }
