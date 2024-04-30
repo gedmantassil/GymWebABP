@@ -40,9 +40,22 @@ function configureRoutes(routesService: RoutesService) {
         path: '/contacts',
         name: '::Menu:Contacts',
         iconClass: 'fas fa-address-book',
+        order: 4,
+        layout: eLayoutType.application,
+      },
+      {
+        path: '/caliasthenics',
+        name: '::Menu:Caliasthenics',
+        iconClass: 'fas fa-person-running',
         order: 3,
         layout: eLayoutType.application,
-      }
+      },
+      {
+        path: '/caliasthenics',
+        name: '::Menu:GoalsTracking',
+        parentName: '::Menu:Caliasthenics',
+        layout: eLayoutType.application,
+      },
     ]);
   };
 }

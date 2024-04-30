@@ -29,6 +29,8 @@ const routes: Routes = [
   { path: 'exercises', loadChildren: () => import('./exercise-selection/exercise-selection.module').then(m => m.ExerciseSelectionModule) },
   { path: 'findExercises', loadChildren: () => import('./exercise-selection/exercise-selection.module').then(m => m.ExerciseSelectionModule) },
   { path: 'contacts', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
+  { path: 'caliasthenics', loadChildren: () => import('./caliasthenic/caliasthenic.module').then(m => m.CaliasthenicModule) },
+  { path: 'caliasthenics', loadChildren: () => import('./caliasthenic/caliasthenic.module').then(m => m.CaliasthenicModule) },
 ];
 
 @NgModule({
