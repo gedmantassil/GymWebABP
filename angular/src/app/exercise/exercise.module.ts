@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
+import { ToastrModule } from 'ngx-toastr';
 
 import { ExerciseRoutingModule } from './exercise-routing.module';
 import { ExerciseComponent } from './exercise.component';
@@ -11,7 +12,8 @@ import { ExerciseComponent } from './exercise.component';
   ],
   imports: [
     SharedModule,
-    ExerciseRoutingModule
+    ExerciseRoutingModule,
+    ToastrModule
   ]
 })
 export class ExerciseModule { }

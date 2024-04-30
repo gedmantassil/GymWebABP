@@ -17,6 +17,8 @@ import { AbpOAuthModule } from '@abp/ng.oauth';
 import { ThemeLeptonXModule } from '@abp/ng.theme.lepton-x';
 import { SideMenuLayoutModule } from '@abp/ng.theme.lepton-x/layouts';
 import { AccountLayoutModule } from '@abp/ng.theme.lepton-x/account';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -39,6 +41,10 @@ import { AccountLayoutModule } from '@abp/ng.theme.lepton-x/account';
               ThemeLeptonXModule.forRoot(),
               SideMenuLayoutModule.forRoot(),
               AccountLayoutModule.forRoot(),
+    ToastrModule.forRoot({
+                positionClass: 'toast-bottom-right',
+                preventDuplicates: true,
+              })
   ],
   declarations: [AppComponent],
   providers: [APP_ROUTE_PROVIDER],

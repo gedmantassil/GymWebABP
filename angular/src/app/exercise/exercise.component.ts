@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ExerciseService, ExerciseDto, muscleTypeOptions } from '@proxy/exercises';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'; 
 import { ConfirmationService, Confirmation } from '@abp/ng.theme.shared';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-exercise',
@@ -24,7 +25,8 @@ export class ExerciseComponent implements OnInit {
     public readonly list: ListService, 
     private exerciseService: ExerciseService, 
     private fb: FormBuilder,
-    private confirmation: ConfirmationService
+    private confirmation: ConfirmationService,
+    private toastr: ToastrService
   ){}
 
   ngOnInit() {
@@ -36,7 +38,6 @@ export class ExerciseComponent implements OnInit {
   }
 
   createExercise(){
-    debugger;
     this.selectedExercise = {} as ExerciseDto;
     this.buildForm();
     this.isModalOpen = true;
@@ -58,15 +59,35 @@ export class ExerciseComponent implements OnInit {
     });
   }
 
+  // save() {
+  //   if (this.form.invalid) {
+  //     return;
+  //   }
+  //   const request = this.selectedExercise.id
+  //     ? this.exerciseService.update(this.selectedExercise.id, this.form.value)
+  //     : this.exerciseService.createOrUpdateExercise(this.form.value);
+
+  //   request.subscribe(() => {
+  //     this.isModalOpen = false;
+  //     this.form.reset();
+  //     this.list.get();
+  //   });
+  // }
+
   save() {
     if (this.form.invalid) {
       return;
     }
+  
     const request = this.selectedExercise.id
       ? this.exerciseService.update(this.selectedExercise.id, this.form.value)
       : this.exerciseService.createOrUpdateExercise(this.form.value);
 
-    request.subscribe(() => {
+    request.subscribe((result) => {
+      if (result && result.maxWeight && (!this.selectedExercise.maxWeight || result.maxWeight > this.selectedExercise.maxWeight)) {
+        const message = `New max weight was set for ${result.name}!`;
+        this.toastr.success(message, 'Success');
+      }
       this.isModalOpen = false;
       this.form.reset();
       this.list.get();
