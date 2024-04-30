@@ -31,7 +31,18 @@
     "Enum:ContactRole.0": "Frontend Developer",
     "Enum:ContactRole.1": "Backend Developer",
     "Enum:ContactRole.2": "Tester",
-    "Enum:ContactRole.3": "Undefined"
+    "Enum:ContactRole.3": "Undefined",
+    "Menu:Caliasthenics": "Caliasthenics",
+    "Menu:GoalsTracking": "Track your goals",
+    "Enum:ExerciseType.0": "Undefined",
+    "Enum:ExerciseType.1": "Back",
+    "Enum:ExerciseType.2": "Chest",
+    "Enum:ExerciseType.3": "Arms",
+    "Enum:ExerciseType.4": "Shoulders",
+    "Enum:ExerciseType.5": "Legs",
+    "Enum:ExerciseType.6": "Core",
+    "MaxR": "Max Reps",
+    "GoalR": "Desired Reps",
   }
 
 }
