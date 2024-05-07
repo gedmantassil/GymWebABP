@@ -2393,43 +2393,6 @@
             }
           ],
           "actions": {
-            "CreateAsyncByInput": {
-              "uniqueName": "CreateAsyncByInput",
-              "name": "CreateAsync",
-              "httpMethod": "POST",
-              "url": "api/app/caliasthenic",
-              "supportedVersions": [],
-              "parametersOnMethod": [
-                {
-                  "name": "input",
-                  "typeAsString": "Gymzii.Caliasthenics.CreateUpdateCaliasthenicDto, Gymzii.Application.Contracts",
-                  "type": "Gymzii.Caliasthenics.CreateUpdateCaliasthenicDto",
-                  "typeSimple": "Gymzii.Caliasthenics.CreateUpdateCaliasthenicDto",
-                  "isOptional": false,
-                  "defaultValue": null
-                }
-              ],
-              "parameters": [
-                {
-                  "nameOnMethod": "input",
-                  "name": "input",
-                  "jsonName": null,
-                  "type": "Gymzii.Caliasthenics.CreateUpdateCaliasthenicDto",
-                  "typeSimple": "Gymzii.Caliasthenics.CreateUpdateCaliasthenicDto",
-                  "isOptional": false,
-                  "defaultValue": null,
-                  "constraintTypes": null,
-                  "bindingSourceId": "Body",
-                  "descriptorName": ""
-                }
-              ],
-              "returnValue": {
-                "type": "Gymzii.Caliasthenics.CaliasthenicDto",
-                "typeSimple": "Gymzii.Caliasthenics.CaliasthenicDto"
-              },
-              "allowAnonymous": null,
-              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<Gymzii.Caliasthenics.CaliasthenicDto,Gymzii.Caliasthenics.CreateUpdateCaliasthenicDto>"
-            },
             "UpdateAsyncByIdAndInput": {
               "uniqueName": "UpdateAsyncByIdAndInput",
               "name": "UpdateAsync",
@@ -2486,6 +2449,43 @@
               },
               "allowAnonymous": null,
               "implementFrom": "Volo.Abp.Application.Services.IUpdateAppService<Gymzii.Caliasthenics.CaliasthenicDto,System.Guid,Gymzii.Caliasthenics.CreateUpdateCaliasthenicDto>"
+            },
+            "CreateAsyncByInput": {
+              "uniqueName": "CreateAsyncByInput",
+              "name": "CreateAsync",
+              "httpMethod": "POST",
+              "url": "api/app/caliasthenic",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Gymzii.Caliasthenics.CreateUpdateCaliasthenicDto, Gymzii.Application.Contracts",
+                  "type": "Gymzii.Caliasthenics.CreateUpdateCaliasthenicDto",
+                  "typeSimple": "Gymzii.Caliasthenics.CreateUpdateCaliasthenicDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Gymzii.Caliasthenics.CreateUpdateCaliasthenicDto",
+                  "typeSimple": "Gymzii.Caliasthenics.CreateUpdateCaliasthenicDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "Gymzii.Caliasthenics.CaliasthenicDto",
+                "typeSimple": "Gymzii.Caliasthenics.CaliasthenicDto"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Volo.Abp.Application.Services.ICreateAppService<Gymzii.Caliasthenics.CaliasthenicDto,Gymzii.Caliasthenics.CreateUpdateCaliasthenicDto>"
             },
             "DeleteAsyncById": {
               "uniqueName": "DeleteAsyncById",
@@ -10094,18 +10094,6 @@
           "minimum": null,
           "maximum": null,
           "regex": null
-        },
-        {
-          "name": "Comment",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
-          "isRequired": true,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
         }
       ]
     },
@@ -10175,18 +10163,6 @@
           "jsonName": null,
           "type": "Gymzii.Contacts.ContactRole",
           "typeSimple": "Gymzii.Contacts.ContactRole",
-          "isRequired": false,
-          "minLength": null,
-          "maxLength": null,
-          "minimum": null,
-          "maximum": null,
-          "regex": null
-        },
-        {
-          "name": "Comment",
-          "jsonName": null,
-          "type": "System.String",
-          "typeSimple": "string",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,

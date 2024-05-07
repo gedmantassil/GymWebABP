@@ -6,7 +6,6 @@ export interface ContactDto extends AuditedEntityDto<string> {
   lastName?: string;
   email?: string;
   role: ContactRole;
-  comment?: string;
 }
 
 export interface CreateUpdateContactDto {
@@ -14,5 +13,4 @@ export interface CreateUpdateContactDto {
   lastName: string;
   email: string;
   role: ContactRole;
-  comment: string;
 }
