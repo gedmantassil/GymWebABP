@@ -54,7 +54,7 @@ export class ContactComponent implements OnInit{
       lastName: [this.selectedContact.lastName || '1'],
       email: [this.selectedContact.email || '1'],
       role: [this.selectedContact.role || 0],
-      comment: [this.selectedContact.comment || null, Validators.required]
+      //comment: [this.selectedContact.comment || null, Validators.required]
     });
   }
 

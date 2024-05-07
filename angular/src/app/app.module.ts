@@ -18,11 +18,21 @@ import { ThemeLeptonXModule } from '@abp/ng.theme.lepton-x';
 import { SideMenuLayoutModule } from '@abp/ng.theme.lepton-x/layouts';
 import { AccountLayoutModule } from '@abp/ng.theme.lepton-x/account';
 import { ToastrModule } from 'ngx-toastr';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { InputDialogComponent } from './input-dialog/input-dialog.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDialogModule,
     AppRoutingModule,
     CoreModule.forRoot({
       environment,
@@ -46,8 +56,8 @@ import { ToastrModule } from 'ngx-toastr';
                 preventDuplicates: true,
               })
   ],
-  declarations: [AppComponent],
-  providers: [APP_ROUTE_PROVIDER],
+  declarations: [AppComponent, InputDialogComponent,],
+  providers: [APP_ROUTE_PROVIDER, provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

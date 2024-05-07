@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
+using Microsoft.Extensions.Logging;
+using Volo.Abp.Domain.Entities;
 
 namespace Gymzii.Caliasthenics;
 public class CaliasthenicAppService :
@@ -17,9 +19,33 @@ CrudAppService<
 	CreateUpdateCaliasthenicDto>, 
 ICaliasthenicAppService 
 {
-	public CaliasthenicAppService(IRepository<Caliasthenic, Guid> repository)
+	private readonly IRepository<Caliasthenic, Guid> _repository;
+	private readonly ILogger<CaliasthenicAppService> _logger;
+
+	public CaliasthenicAppService(IRepository<Caliasthenic, Guid> repository, ILogger<CaliasthenicAppService> logger)
 		: base(repository)
 	{
-
+		_repository = repository;
+		_logger = logger;
 	}
+
+	public override async Task<CaliasthenicDto> UpdateAsync(Guid id, CreateUpdateCaliasthenicDto input)
+	{
+		_logger.LogInformation($"Received type: {input.Type}, Name: {input.Name}");
+
+		var caliasthenic = await _repository.GetAsync(id);
+		if (caliasthenic == null)
+		{
+			_logger.LogWarning($"Caliasthenic not found for ID: {id}");
+			throw new EntityNotFoundException(typeof(Caliasthenic), id);
+		}
+
+		_logger.LogInformation($"Before Update - RepsGoal: {caliasthenic.RepsGoal}");
+		ObjectMapper.Map(input, caliasthenic);
+		await _repository.UpdateAsync(caliasthenic);
+		_logger.LogInformation($"After Update - RepsGoal: {caliasthenic.RepsGoal}");
+
+		return await MapToGetOutputDtoAsync(caliasthenic);
+	}
+
 }
