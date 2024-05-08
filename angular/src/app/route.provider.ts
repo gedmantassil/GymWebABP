@@ -49,12 +49,14 @@ function configureRoutes(routesService: RoutesService) {
         iconClass: 'fas fa-person-running',
         order: 3,
         layout: eLayoutType.application,
+        requiredPolicy: 'Gymzii.Caliasthenics',
       },
       {
         path: '/caliasthenics',
         name: '::Menu:GoalsTracking',
         parentName: '::Menu:Caliasthenics',
         layout: eLayoutType.application,
+        requiredPolicy: 'Gymzii.Caliasthenics',
       },
     ]);
   };
