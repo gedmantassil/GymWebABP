@@ -11,10 +11,15 @@ public class GymziiPermissionDefinitionProvider : PermissionDefinitionProvider
         var myGroup = context.AddGroup(GymziiPermissions.GroupName, L("Permission:Gymzii"));
         //Define your own permissions here. Example:
         //myGroup.AddPermission(GymziiPermissions.MyPermission1, L("Permission:MyPermission1"));
-        var booksPermission = myGroup.AddPermission(GymziiPermissions.Exercises.Default, L("Permission:Exercises"));
-        booksPermission.AddChild(GymziiPermissions.Exercises.Create, L("Permission:Exercises.Create"));
-        booksPermission.AddChild(GymziiPermissions.Exercises.Edit, L("Permission:Exercises.Edit"));
-        booksPermission.AddChild(GymziiPermissions.Exercises.Delete, L("Permission:Exercises.Delete"));
+        var exercisesPermission = myGroup.AddPermission(GymziiPermissions.Exercises.Default, L("Permission:Exercises"));
+        exercisesPermission.AddChild(GymziiPermissions.Exercises.Create, L("Permission:Exercises.Create"));
+        exercisesPermission.AddChild(GymziiPermissions.Exercises.Edit, L("Permission:Exercises.Edit"));
+        exercisesPermission.AddChild(GymziiPermissions.Exercises.Delete, L("Permission:Exercises.Delete"));
+
+        var caliasthenicsPermission = myGroup.AddPermission(GymziiPermissions.Caliasthenics.Default, L("Permission:Caliasthenics"));
+        caliasthenicsPermission.AddChild(GymziiPermissions.Caliasthenics.Create, L("Permission:Caliasthenics.Create"));
+        caliasthenicsPermission.AddChild(GymziiPermissions.Caliasthenics.Edit, L("Permission:Caliasthenics.Edit"));
+        caliasthenicsPermission.AddChild(GymziiPermissions.Caliasthenics.Delete, L("Permission:Caliasthenics.Delete"));
     }
 
     private static LocalizableString L(string name)

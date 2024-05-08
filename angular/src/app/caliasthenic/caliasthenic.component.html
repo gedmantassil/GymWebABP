@@ -8,7 +8,7 @@
         </div>
         <div class="text-end col col-md-6">
           <div class="text-lg-end pt-2">
-            <button id="create" class="btn btn-primary" type="button" (click)="createCaliasthenic()">
+            <button *abpPermission="'Gymzii.Caliasthenics.Create'" id="create" class="btn btn-primary" type="button" (click)="createCaliasthenic()">
               <i class="fa fa-plus me-1"></i>
               <span>{{ "::NewExercise" | abpLocalization }}</span>
             </button>
@@ -35,10 +35,10 @@
           <i class="fa fa-cog me-1"></i>{{ '::Actions' | abpLocalization }}
         </button>
         <div ngbDropdownMenu>
-          <button ngbDropdownItem (click)="editCaliasthenic(row.id)">
+          <button *abpPermission="'Gymzii.Caliasthenics.Edit'" ngbDropdownItem (click)="editCaliasthenic(row.id)">
             {{ '::Edit' | abpLocalization }}
           </button>
-          <button ngbDropdownItem (click)="delete(row.id)">
+          <button *abpPermission="'Gymzii.Caliasthenics.Delete'" ngbDropdownItem (click)="delete(row.id)">
             {{ '::Delete' | abpLocalization }}
         </button>
         </div>

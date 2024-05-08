@@ -8,6 +8,7 @@ using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 using Microsoft.Extensions.Logging;
 using Volo.Abp.Domain.Entities;
+using Gymzii.Permissions;
 
 namespace Gymzii.Caliasthenics;
 public class CaliasthenicAppService :
@@ -27,7 +28,13 @@ ICaliasthenicAppService
 	{
 		_repository = repository;
 		_logger = logger;
-	}
+
+        GetPolicyName = GymziiPermissions.Caliasthenics.Default;
+        GetListPolicyName = GymziiPermissions.Caliasthenics.Default;
+        CreatePolicyName = GymziiPermissions.Caliasthenics.Create;
+        UpdatePolicyName = GymziiPermissions.Caliasthenics.Edit;
+        DeletePolicyName = GymziiPermissions.Caliasthenics.Delete;
+    }
 
 	public override async Task<CaliasthenicDto> UpdateAsync(Guid id, CreateUpdateCaliasthenicDto input)
 	{

@@ -43,6 +43,10 @@
     "Enum:ExerciseType.6": "Core",
     "MaxR": "Max Reps",
     "GoalR": "Desired Reps",
+    "Permission:Caliasthenics": "Calisthenic exercises management",
+    "Permission:Caliasthenics.Create": "Creating new calisthenic exercises",
+    "Permission:Caliasthenics.Edit": "Editing the calisthenic exercises",
+    "Permission:Caliasthenics.Delete": "Deleting the calisthenic exercises"
   }
 
 }
