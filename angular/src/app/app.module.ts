@@ -24,7 +24,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { InputDialogComponent } from './input-dialog/input-dialog.component';
-
+import { FormsModule } from '@angular/forms';
+import { ChatComponent } from './chat/chat.component'; 
+import { ChatBubbleComponent } from './chatbubble/chatbubble.component';
+import { Chat } from '@proxy';
 @NgModule({
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import { InputDialogComponent } from './input-dialog/input-dialog.component';
     MatInputModule,
     MatButtonModule,
     MatDialogModule,
+    FormsModule,
     AppRoutingModule,
     CoreModule.forRoot({
       environment,
@@ -56,7 +60,7 @@ import { InputDialogComponent } from './input-dialog/input-dialog.component';
                 preventDuplicates: true,
               })
   ],
-  declarations: [AppComponent, InputDialogComponent,],
+  declarations: [AppComponent, InputDialogComponent, ChatComponent,ChatBubbleComponent],
   providers: [APP_ROUTE_PROVIDER, provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })

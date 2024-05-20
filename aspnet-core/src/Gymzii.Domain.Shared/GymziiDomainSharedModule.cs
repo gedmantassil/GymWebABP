@@ -1,8 +1,11 @@
 ﻿using Gymzii.Localization;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.BackgroundJobs;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
+using Volo.Abp.Linq;
 using Volo.Abp.Localization;
 using Volo.Abp.Localization.ExceptionHandling;
 using Volo.Abp.Modularity;
@@ -12,6 +15,7 @@ using Volo.Abp.SettingManagement;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
+
 
 namespace Gymzii;
 
@@ -23,7 +27,7 @@ namespace Gymzii;
     typeof(AbpOpenIddictDomainSharedModule),
     typeof(AbpPermissionManagementDomainSharedModule),
     typeof(AbpSettingManagementDomainSharedModule),
-    typeof(AbpTenantManagementDomainSharedModule)    
+    typeof(AbpTenantManagementDomainSharedModule)
     )]
 public class GymziiDomainSharedModule : AbpModule
 {
@@ -54,5 +58,6 @@ public class GymziiDomainSharedModule : AbpModule
         {
             options.MapCodeNamespace("Gymzii", typeof(GymziiResource));
         });
+
     }
 }

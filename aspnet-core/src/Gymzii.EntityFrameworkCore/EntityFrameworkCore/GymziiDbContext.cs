@@ -16,6 +16,7 @@ using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Gymzii.Caliasthenics;
+using Gymzii.Chat;
 
 namespace Gymzii.EntityFrameworkCore;
 
@@ -32,6 +33,8 @@ public class GymziiDbContext :
     public DbSet<Contact> Contacts { get; set; }
 
     public DbSet<Caliasthenic> Caliasthenics { get; set; }
+    public DbSet<ChatMessage> ChatMessages { get; set; }
+
 
     #region Entities from the modules
 
@@ -107,5 +110,10 @@ public class GymziiDbContext :
 			b.ConfigureByConvention(); //auto configure for the base class props
 			b.Property(x => x.Name).IsRequired().HasMaxLength(128);
 		});
-	}
+        builder.Entity<ChatMessage>(b =>
+        {
+            b.ToTable("ChatMessages");
+            b.ConfigureByConvention();
+        });
+    }
 }

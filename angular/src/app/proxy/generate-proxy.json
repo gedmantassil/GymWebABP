@@ -2284,6 +2284,147 @@
             }
           }
         },
+        "Gymzii.Chat.ChatAppService": {
+          "controllerName": "Chat",
+          "controllerGroupName": "Chat",
+          "isRemoteService": true,
+          "isIntegrationService": false,
+          "apiVersion": null,
+          "type": "Gymzii.Chat.ChatAppService",
+          "interfaces": [
+            {
+              "type": "Gymzii.Chat.IChatAppService",
+              "name": "IChatAppService",
+              "methods": [
+                {
+                  "name": "SendMessageAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "input",
+                      "typeAsString": "Gymzii.Chat.CreateChatMessageDto, Gymzii.Application.Contracts",
+                      "type": "Gymzii.Chat.CreateChatMessageDto",
+                      "typeSimple": "Gymzii.Chat.CreateChatMessageDto",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Void",
+                    "typeSimple": "System.Void"
+                  }
+                },
+                {
+                  "name": "GetMessagesAsync",
+                  "parametersOnMethod": [
+                    {
+                      "name": "userId",
+                      "typeAsString": "System.Guid, System.Private.CoreLib",
+                      "type": "System.Guid",
+                      "typeSimple": "string",
+                      "isOptional": false,
+                      "defaultValue": null
+                    }
+                  ],
+                  "returnValue": {
+                    "type": "System.Collections.Generic.List<Gymzii.Chat.ChatMessageDto>",
+                    "typeSimple": "[Gymzii.Chat.ChatMessageDto]"
+                  }
+                }
+              ]
+            }
+          ],
+          "actions": {
+            "SendMessageAsyncByInput": {
+              "uniqueName": "SendMessageAsyncByInput",
+              "name": "SendMessageAsync",
+              "httpMethod": "POST",
+              "url": "api/app/chat/send-message",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "input",
+                  "typeAsString": "Gymzii.Chat.CreateChatMessageDto, Gymzii.Application.Contracts",
+                  "type": "Gymzii.Chat.CreateChatMessageDto",
+                  "typeSimple": "Gymzii.Chat.CreateChatMessageDto",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "input",
+                  "name": "input",
+                  "jsonName": null,
+                  "type": "Gymzii.Chat.CreateChatMessageDto",
+                  "typeSimple": "Gymzii.Chat.CreateChatMessageDto",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": null,
+                  "bindingSourceId": "Body",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Void",
+                "typeSimple": "System.Void"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Gymzii.Chat.IChatAppService"
+            },
+            "GetMessagesAsyncByUserId": {
+              "uniqueName": "GetMessagesAsyncByUserId",
+              "name": "GetMessagesAsync",
+              "httpMethod": "GET",
+              "url": "api/app/chat/messages/{userId}",
+              "supportedVersions": [],
+              "parametersOnMethod": [
+                {
+                  "name": "userId",
+                  "typeAsString": "System.Guid, System.Private.CoreLib",
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null
+                }
+              ],
+              "parameters": [
+                {
+                  "nameOnMethod": "userId",
+                  "name": "userId",
+                  "jsonName": null,
+                  "type": "System.Guid",
+                  "typeSimple": "string",
+                  "isOptional": false,
+                  "defaultValue": null,
+                  "constraintTypes": [],
+                  "bindingSourceId": "Path",
+                  "descriptorName": ""
+                }
+              ],
+              "returnValue": {
+                "type": "System.Collections.Generic.List<Gymzii.Chat.ChatMessageDto>",
+                "typeSimple": "[Gymzii.Chat.ChatMessageDto]"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Gymzii.Chat.IChatAppService"
+            },
+            "GetCurrentUserId": {
+              "uniqueName": "GetCurrentUserId",
+              "name": "GetCurrentUserId",
+              "httpMethod": "GET",
+              "url": "api/app/chat/current-user-id",
+              "supportedVersions": [],
+              "parametersOnMethod": [],
+              "parameters": [],
+              "returnValue": {
+                "type": "System.Guid?",
+                "typeSimple": "string?"
+              },
+              "allowAnonymous": null,
+              "implementFrom": "Gymzii.Chat.ChatAppService"
+            }
+          }
+        },
         "Gymzii.Caliasthenics.CaliasthenicAppService": {
           "controllerName": "Caliasthenic",
           "controllerGroupName": "Caliasthenic",
@@ -10163,6 +10304,132 @@
           "jsonName": null,
           "type": "Gymzii.Contacts.ContactRole",
           "typeSimple": "Gymzii.Contacts.ContactRole",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Gymzii.Chat.CreateChatMessageDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "ReceiverId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ReceiverUserName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Message",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        }
+      ]
+    },
+    "Gymzii.Chat.ChatMessageDto": {
+      "baseType": null,
+      "isEnum": false,
+      "enumNames": null,
+      "enumValues": null,
+      "genericArguments": null,
+      "properties": [
+        {
+          "name": "SenderId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SenderUserName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ReceiverId",
+          "jsonName": null,
+          "type": "System.Guid",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "ReceiverUserName",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "Message",
+          "jsonName": null,
+          "type": "System.String",
+          "typeSimple": "string",
+          "isRequired": false,
+          "minLength": null,
+          "maxLength": null,
+          "minimum": null,
+          "maximum": null,
+          "regex": null
+        },
+        {
+          "name": "SentTime",
+          "jsonName": null,
+          "type": "System.DateTime",
+          "typeSimple": "string",
           "isRequired": false,
           "minLength": null,
           "maxLength": null,
