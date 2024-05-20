@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Gymzii.Caliasthenics;
+using Gymzii.Chat;
 using Gymzii.Contacts;
 using Gymzii.Exercises;
 
@@ -18,5 +19,8 @@ public class GymziiApplicationAutoMapperProfile : Profile
         //Dtos for Caliasthenics
         CreateMap<Caliasthenic, CaliasthenicDto>();
         CreateMap<CreateUpdateCaliasthenicDto, Caliasthenic>();
+
+        CreateMap<ChatMessage, ChatMessageDto>();
+        CreateMap<CreateChatMessageDto, ChatMessage>();
     }
 }
