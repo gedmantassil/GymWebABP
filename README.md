@@ -16,7 +16,18 @@ Daugelis šiuolaikinių programėlių ar puslapių, skirtų progreso sporte seki
 ## Testavimas
 Statinė kodo analizė, vienetų testai ir našumo testai ir jų rezultatai yra pateikti [čia](Testavimas)
 ## Naudotojo vadovas
+Prieš pradėdami, įsitikinkite, kad jūsų sistema atitinka šiuos reikalavimus:
 
+- [Node.js](https://nodejs.org/) (versija 12 arba naujesnė)
+- [Angular CLI](https://angular.io/cli) (versija 10 arba naujesnė)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) arba naujesnė
+- [Visual Studio Code](https://code.visualstudio.com/)
+- .NET Core SDK (versija 3.1 arba naujesnė)
+
+Sekite šiuos žingsnius norėdami įdiegti projektą:
+
+1. Nuklonuokite šį repozitoriją.
+2. 
 ## Naudota dokumentacija
 Geriausias būdas, kaip išmokti naudotis ABP, yra skaityti dokumentaciją oficialiame ABP [puslapyje](https://docs.abp.io/en/abp/latest/Tutorials/Todo/Single-Layer/Index?UI=NG&DB=EF).
 
