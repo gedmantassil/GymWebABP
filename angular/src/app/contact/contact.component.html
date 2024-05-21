@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 <div class="card">
     <div class="card-header">
       <div class="row">
@@ -43,6 +45,9 @@
         <div class="mt-2">
           <label for="comment">Leave your comment here: </label><span> * </span>
           <input type="text" id="comment" class="form-control" formControlName="comment" autofocus />
+          <div *ngIf="form.controls['comment'].invalid && (form.controls['comment'].dirty || form.controls['comment'].touched)" class="text-danger">
+            Comment is required.
+          </div>
         </div>
       </form>
     </ng-template>
@@ -56,4 +61,5 @@
         {{ '::Save' | abpLocalization }}
       </button>
     </ng-template>
-  </abp-modal>
+  </abp-modal> 
+  
