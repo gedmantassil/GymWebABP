@@ -1,5 +1,4 @@
-# GymWebAbp
-GYMZII
+# GymWebAbp GYMZII
 
 Komanda NUSIPRAUSE ir jos nariai:
 Rokas Gudžiūnas
