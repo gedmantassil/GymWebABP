@@ -1,3 +1,4 @@
+![Gym Logo](angular/src/assets/images/logo/logo-light-thumbnail.png)
 # GymWebAbp GYMZII
 
 # Komanda NUSIPRAUSE ir jos nariai:
