@@ -44,8 +44,8 @@ ng serve
 ```
 Atlikę šiuos veiksmus, sėkmingai galėsite naudotis šioje repozitorijoje esančiu projektu.
 ## Naudotojo vadovas
-1. Atidarykite internetinį puslapį. Turėtumėte matyti tokį vaizdą.
-   ![home](angular/src/assets/images/logo/home.png)
+1. Atidarykite internetinį puslapį. Turėtumėte matyti tokį vaizdą:
+![home](angular/src/assets/images/logo/home.png)
 2. Spustelėkite viršutiniame dešiniajame kampe esantį "Login" mygtuką ir prisijunkite kaip administratorius, su šiais duomenimis.
 * Username or email address: admin
 * Password: 1q2w3E
@@ -59,17 +59,17 @@ Turėtumėte matyti tokį vaizdą:
 3. Paspauskite kairėje veiksmų juostoje "Workout", išsiskleidusiame meniu pasirinkite "Progress tracking" ir sukurkite naują pratimą.
 ![login](angular/src/assets/images/logo/exercise.png)
 
-Pratimų maksimalų rezultatą galima atnaujinti: paspaudus edit ar sukūras naują tokį patį pratimą tik pakeitus jo "Max Weight" į didesnę reikšmę, to pratimo maksimalus svoris yra atnaujinamas.
+Pratimų maksimalų rezultatą galima atnaujinti: paspaudus edit ar sukūras naują tokį patį pratimą tik pakeitus jo "Max Weight" į didesnę reikšmę.
 
 Panašiai veikia ir kitų sporto šakų, esančių kairėje juostoje, progreso atnaujimas.
 Taip pat veikia ir susirašinėjimo su kitais vartotojais funkcija. Ja galima pasinaudoti spustelėjus ant dešiniame apatiniame kampe esančios ikonos.
 ![chat](angular/src/assets/images/logo/chat.png)
 
 4. Paspauskite kairėje veiksmų juostoje "Administration", išsiskleidusiame meniu pasirinkite "Identity management", tada "Users" ir ten galite pakeisti savo varotojų leidimus.
- ![permissions](angular/src/assets/images/logo/leidimai.png)
+![permissions](angular/src/assets/images/logo/leidimai.png)
 
 
-Atlikę šiuos veiksmus gebėsite suprasti pradinį šio internetinio puslapio funkcionalumą, perprasti sunkesnes funkcijas ir sukurti savas.
+Atlikę šiuos veiksmus gebėsite suprasti pagrindinį šio internetinio puslapio funkcionalumą, perprasti sunkesnes funkcijas ir pridėti savas.
 
 ## Naudota dokumentacija
 Geriausias būdas, kaip išmokti naudotis ABP, yra skaityti dokumentaciją oficialiame ABP [puslapyje](https://docs.abp.io/en/abp/latest/Tutorials/Todo/Single-Layer/Index?UI=NG&DB=EF).
