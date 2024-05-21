@@ -26,50 +26,48 @@ Prieš pradėdami, įsitikinkite, kad jūsų sistema atitinka šiuos reikalavimu
 
 Sekite šiuos žingsnius norėdami įdiegti projektą:
 
-Siekiant sklandžiai naudoti šią web aplikaciją, visų pirma reikia įsidiegti projekte naudojamas bibliotekas, atsidarius terminalą ir suvedus tokias komandas:
-```sh
-abp install-libs
-```
-arba
-```sh
-npm install
-```
+1. Siekiant sklandžiai naudoti šią web aplikaciją, visų pirma reikia įsidiegti projekte naudojamas bibliotekas, atsidarius terminalą ir suvedus tokias komandas:
+   ```sh
+   abp install-libs
+   ```
+   arba
+   ```sh
+   npm install
+   ```
 
-Atsidarę šį projektą, pasirinkite Gymzii.DbMigrator, kaip "Startup Project" bei jį paleiskite. Šitaip inicializuosite savo lokalią duomenų bazę.
-Atlikę šiuos veiksmus, pasirinkite Gymzii.HttpApi.Host, kaip "Startup Project" bei jį paleiskite, šis veiksmas atvers "swagger" platformą, kurioje imituojamos jūsų kuriamos aplikacijų programavimo sąsajos (angl. application programming interface, API).
+2. Atsidarę šį projektą, pasirinkite Gymzii.DbMigrator, kaip "Startup Project" bei jį paleiskite. Šitaip inicializuosite savo lokalią duomenų bazę.
+3. Atlikę šiuos veiksmus, pasirinkite Gymzii.HttpApi.Host, kaip "Startup Project" bei jį paleiskite, šis veiksmas atvers "swagger" platformą, kurioje imituojamos jūsų kuriamos aplikacijų programavimo sąsajos (angl. application programming interface, API).
+4. Norėdami pamatyti ir pakoreguoti naudotojo sąsają (angl. User Interface, UI), reikalinga VS Code programinė įranga arba projekto paleidimas, naudojant "Command Prompt" terminalą iš angular direktorijos. Abiem scenarijams naudojama komanda:
+   ```sh
+   ng serve
+   ```
 
-Norėdami pamatyti ir pakoreguoti naudotojo sąsają (angl. User Interface, UI), reikalinga VS Code programinė įranga arba projekto paleidimas, naudojant "Command Prompt" terminalą iš angular direktorijos. Abiem scenarijams naudojama komanda:
-```sh
-ng serve
-```
 Atlikę šiuos veiksmus, sėkmingai galėsite naudotis šioje repozitorijoje esančiu projektu.
 ## Naudotojo vadovas
 1. Atidarykite internetinį puslapį. Turėtumėte matyti tokį vaizdą:
 ![home](angular/src/assets/images/logo/home.png)
 2. Spustelėkite viršutiniame dešiniajame kampe esantį "Login" mygtuką ir prisijunkite kaip administratorius, su šiais duomenimis.
-* Username or email address: admin
-* Password: 1q2w3E
+   * Username or email address: admin
+   * Password: 1q2w3E
+   
+   Toks slaptažodis yra iš anksto numatytuose ABP nustatymuose.
+   ![login](angular/src/assets/images/logo/admin.png)
+   Turėtumėte matyti tokį vaizdą:
+   ![login](angular/src/assets/images/logo/logedin.png)
 
-Toks slaptažodis yra iš anksto numatytuose ABP nustatymuose.
-![login](angular/src/assets/images/logo/admin.png)
+4. Paspauskite kairėje veiksmų juostoje "Workout", išsiskleidusiame meniu pasirinkite "Progress tracking" ir sukurkite naują pratimą.
+   ![login](angular/src/assets/images/logo/exercise.png)
 
-Turėtumėte matyti tokį vaizdą:
-![login](angular/src/assets/images/logo/logedin.png)
+   Pratimų maksimalų rezultatą galima atnaujinti: paspaudus edit ar sukūras naują tokį patį pratimą tik pakeitus jo "Max Weight" į didesnę reikšmę.
 
-3. Paspauskite kairėje veiksmų juostoje "Workout", išsiskleidusiame meniu pasirinkite "Progress tracking" ir sukurkite naują pratimą.
-![login](angular/src/assets/images/logo/exercise.png)
-
-Pratimų maksimalų rezultatą galima atnaujinti: paspaudus edit ar sukūras naują tokį patį pratimą tik pakeitus jo "Max Weight" į didesnę reikšmę.
-
-Panašiai veikia ir kitų sporto šakų, esančių kairėje juostoje, progreso atnaujimas.
-Taip pat veikia ir susirašinėjimo su kitais vartotojais funkcija. Ja galima pasinaudoti spustelėjus ant dešiniame apatiniame kampe esančios ikonos.
-![chat](angular/src/assets/images/logo/chat.png)
+   Panašiai veikia ir kitų sporto šakų, esančių kairėje juostoje, progreso atnaujimas.
+   Taip pat veikia ir susirašinėjimo su kitais vartotojais funkcija. Ja galima pasinaudoti spustelėjus ant dešiniame apatiniame kampe esančios ikonos.
+   ![chat](angular/src/assets/images/logo/chat.png)
 
 4. Paspauskite kairėje veiksmų juostoje "Administration", išsiskleidusiame meniu pasirinkite "Identity management", tada "Users" ir ten galite pakeisti savo varotojų leidimus.
-![permissions](angular/src/assets/images/logo/leidimai.png)
+   ![permissions](angular/src/assets/images/logo/leidimai.png)
 
-
-Atlikę šiuos veiksmus gebėsite suprasti pagrindinį šio internetinio puslapio funkcionalumą, perprasti sunkesnes funkcijas ir pridėti savas.
+   Atlikę šiuos veiksmus, gebėsite suprasti pagrindinį šio internetinio puslapio funkcionalumą, perprasti sunkesnes funkcijas ir pridėti savas.
 
 ## Naudota dokumentacija
 Geriausias būdas, kaip išmokti naudotis ABP, yra skaityti dokumentaciją oficialiame ABP [puslapyje](https://docs.abp.io/en/abp/latest/Tutorials/Todo/Single-Layer/Index?UI=NG&DB=EF).
