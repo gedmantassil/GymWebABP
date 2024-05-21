@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'; 
 import { ListService, PagedResultDto } from '@abp/ng.core';
 import { ContactService, ContactDto, contactRoleOptions } from '@proxy/contacts';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact',
@@ -10,9 +10,9 @@ import { ContactService, ContactDto, contactRoleOptions } from '@proxy/contacts'
   styleUrl: './contact.component.scss',
   providers: [ListService],
 })
-export class ContactComponent implements OnInit{
+export class ContactComponent implements OnInit {
 
-  contact = { items:[], totalCount: 0} as PagedResultDto<ContactDto>;
+  contact = { items: [], totalCount: 0 } as PagedResultDto<ContactDto>;
   limitedContactItems: ContactDto[] = [];
 
   commentText: string = '';
@@ -25,10 +25,11 @@ export class ContactComponent implements OnInit{
   isModalOpen = false;
 
   constructor(
-    public readonly list: ListService, 
-    private contactService: ContactService, 
+    public readonly list: ListService,
+    private contactService: ContactService,
     private fb: FormBuilder,
-  ){}
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit() {
     const contactStreamCreator = (query) => this.contactService.getList(query);
@@ -38,45 +39,41 @@ export class ContactComponent implements OnInit{
       this.limitContactItems();
     });
   }
+
   limitContactItems() {
-    //const totalItems = this.contact.items.length;
-    //const startIndex = Math.max(totalItems - 4, 0); // Calculate the starting index for the last four items
-    //this.limitedContactItems = this.contact.items.slice(startIndex,totalItems); // Get the last four items
-
-    this.limitedContactItems = this.contact.items.filter(contact => contact.name !== '1'); 
+    this.limitedContactItems = this.contact.items.filter(contact => contact.name !== '1');
   }
-  
-  
 
-  buildForm(){
+  buildForm() {
     this.form = this.fb.group({
       name: [this.selectedContact.name || '1'],
       lastName: [this.selectedContact.lastName || '1'],
       email: [this.selectedContact.email || '1'],
       role: [this.selectedContact.role || 0],
-      //comment: [this.selectedContact.comment || null, Validators.required]
+      comment: ['', Validators.required]
     });
   }
 
-  createComment(){
+  createComment() {
     this.commentText = "";
     this.buildForm();
     this.isModalOpen = true;
   }
+
   save() {
     if (this.form.invalid) {
+      this.toastr.error('Comment cannot be empty.', 'Error');
       return;
     }
-    const request= this.selectedContact.id ? 
-    this.contactService.update(this.selectedContact.id, this.form.value) : this.contactService.create(this.form.value);
+    const request = this.selectedContact.id ?
+      this.contactService.update(this.selectedContact.id, this.form.value) : this.contactService.create(this.form.value);
 
-    request.subscribe(()=>{
-      this.isModalOpen=false;
+    request.subscribe(() => {
+      this.isModalOpen = false;
       this.form.reset();
       this.list.get();
+      this.toastr.success('Comment sent successfully!', 'Success');
     });
   }
-  
-  
 
 }
