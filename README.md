@@ -26,9 +26,22 @@ Prieš pradėdami, įsitikinkite, kad jūsų sistema atitinka šiuos reikalavimu
 
 Sekite šiuos žingsnius norėdami įdiegti projektą:
 
-1. Nuklonuokite šį repozitoriją.
-2. 
+Siekiant sklandžiai naudoti šią web aplikaciją, visų pirma reikia įsidiegti projekte naudojamas bibliotekas, atsidarius terminalą ir suvedus tokias komandas:
+```sh
+abp install-libs
+```
+arba
+```sh
+npm install
+```
+
+Atsidarę šį projektą, pasirinkite Gymzii.DbMigrator, kaip "Startup Project" bei jį paleiskite, kad inicializuoti savo lokalią duomenų bazę.
+Atlikę šiuos veiksmus, pasirinkite Gymzii.HttpApi.Host, kaip "Startup Project" bei jį paleiskite, šis veiksmas atvers "swagger" platformą, kurioje imituojami jūsų kuriami API's.
+
+Norint pažvelgtį į UI, reikalinga VS Code programinė įranga, arba projekto paleidimas naudojant "Command Prompt" terminalą iš angular direktorijos, abiem scenarijams naudojama komanda:
+```sh
+ng serve
+```
+Atlikę šiuos veiksmus, sėkmingai galėsite naudotis šioje repozitorijoje esančiu projektu.
 ## Naudota dokumentacija
 Geriausias būdas, kaip išmokti naudotis ABP, yra skaityti dokumentaciją oficialiame ABP [puslapyje](https://docs.abp.io/en/abp/latest/Tutorials/Todo/Single-Layer/Index?UI=NG&DB=EF).
-
-
