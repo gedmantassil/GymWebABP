@@ -17,4 +17,7 @@ Daugelis šiuolaikinių programėlių ar puslapių, skirtų progreso sporte seki
 Statinė kodo analizė, vienetų testai ir našumo testai ir jų rezultatai yra pateikti [čia](Testavimas)
 ## Naudotojo vadovas
 
+## Naudota dokumentacija
+Geriausias būdas, kaip išmokti naudotis ABP, yra skaityti dokumentaciją oficialiame ABP [puslapyje](https://docs.abp.io/en/abp/latest/Tutorials/Todo/Single-Layer/Index?UI=NG&DB=EF).
+
 
