@@ -12,7 +12,7 @@ Užduotis buvo sukurti internetinį puslapį skirtą sportu užsiimantiems žmon
 ## Pagrindinė problematika
 Daugelis šiuolaikinių programėlių ar puslapių, skirtų progreso sporte sekimui, reikalauja tam tikro papildomo mokesčio, jog vartotojas galėtų naudotis jų teikiamomis paslaugomis. Mes taip pat buvome susidūrę su šia problema ir supratome, jog toks mokestis dideliai daliai žmonių sukelia nepatogumų ir priverčia ieškoti kitokių asmeninio tobulėjimo sekimo alternatyvų. Padarėme išvadą, jog yra didelis poreikis tokio tipo nemokamai paslaugai ir sukūrėme papildomo mokesčio neprašančią progreso sekimo sporte internetinį puslapį.
 ## Architektūra
-
+![Arch](angular/src/assets/images/logo/architektura.png)
 ## Testavimas
 Statinė kodo analizė, vienetų testai ir našumo testai ir jų rezultatai yra pateikti [čia](Testavimas)
 ## Naudotojo vadovas
