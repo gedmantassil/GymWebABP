@@ -48,7 +48,7 @@ Atlikę šiuos veiksmus, sėkmingai galėsite naudotis šioje repozitorijoje esa
 ![home](angular/src/assets/images/logo/home.png)
 2. Spustelėkite viršutiniame dešiniajame kampe esantį "Login" mygtuką ir prisijunkite kaip administratorius, su šiais duomenimis.
    * Username or email address: admin
-   * Password: 1q2w3E
+   * Password: 1q2w3E*
    
    Toks slaptažodis yra iš anksto numatytuose ABP nustatymuose.
    ![login](angular/src/assets/images/logo/admin.png)
