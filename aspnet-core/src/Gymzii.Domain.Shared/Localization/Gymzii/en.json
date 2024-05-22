@@ -32,7 +32,7 @@
     "Enum:ContactRole.1": "Backend Developer",
     "Enum:ContactRole.2": "Tester",
     "Enum:ContactRole.3": "Undefined",
-    "Menu:Caliasthenics": "Calisthenics",
+    "Menu:Caliasthenics": "Caliasthenics",
     "Menu:GoalsTracking": "Track your goals",
     "Enum:ExerciseType.0": "Undefined",
     "Enum:ExerciseType.1": "Back",
@@ -46,7 +46,27 @@
     "Permission:Caliasthenics": "Calisthenic exercises management",
     "Permission:Caliasthenics.Create": "Creating new calisthenic exercises",
     "Permission:Caliasthenics.Edit": "Editing the calisthenic exercises",
-    "Permission:Caliasthenics.Delete": "Deleting the calisthenic exercises"
+    "Permission:Caliasthenics.Delete": "Deleting the calisthenic exercises",
+    "Menu:Cardios": "Cardio",
+    "Menu:CardioGoalsTracking": "Track your goals",
+    "Enum:CardioType.0": "Undefined",
+    "Enum:CardioType.1": "Swimming",
+    "Enum:CardioType.2": "HIIT",
+    "Enum:CardioType.3": "Hiking",
+    "Enum:CardioType.4": "Boxing",
+    "Enum:CardioType.5": "Cycling",
+    "Enum:CardioType.6": "Burpee",
+    "Enum:CardioType.7": "Dance",
+    "Enum:CardioType.8": "Treadmill",
+    "NewCardioExercise": "New Exercise",
+    "Edit": "Edit",
+    "Type": "Type",
+    "MaxTime": "Max time",
+    "Save": "Save",
+    "Permission:Cardios": "Cardio exercises management",
+    "Permission:Cardios.Create": "Creating new cardio exercises",
+    "Permission:Cardios.Edit": "Editing cardio exercises",
+    "Permission:Cardios.Delete": "Deleting cardio exercises"
   }
 
 }

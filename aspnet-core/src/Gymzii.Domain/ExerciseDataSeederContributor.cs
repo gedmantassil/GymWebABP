@@ -1,6 +1,7 @@
 ﻿using Gymzii.Caliasthenics;
 using Gymzii.Contacts;
 using Gymzii.Exercises;
+using Gymzii.Cardios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,10 @@ namespace Gymzii
         private readonly IRepository<Exercise, Guid> _exerciseRepository;
         private readonly IRepository<Contact, Guid> _contactRepository;
 		private readonly IRepository<Caliasthenic, Guid> _caliasthenicRepository;
+        private readonly IRepository<Cardio, Guid> _cardioRepository;
 
 
-		public ExerciseDataSeederContributor(IRepository<Exercise, Guid> bookRepository, IRepository<Contact, Guid> contactRepository, IRepository<Caliasthenic, Guid> caliasthenicRepository)
+        public ExerciseDataSeederContributor(IRepository<Exercise, Guid> bookRepository, IRepository<Contact, Guid> contactRepository, IRepository<Caliasthenic, Guid> caliasthenicRepository)
         {
             _exerciseRepository = bookRepository;
 			_contactRepository = contactRepository;
@@ -107,6 +109,19 @@ namespace Gymzii
 					autoSave: true
 					);
 			}
-		}
+            if (await _cardioRepository.GetCountAsync() <= 0)
+            {
+                await _cardioRepository.InsertAsync(
+                    new Cardio
+                    {
+                        Name = "Zumba",
+                        Type = CardioType.Dance,
+                        MaxTimeMinute = 15,
+                        MaxTimeSecond = 28
+                    },
+                    autoSave: true
+                    ) ;
+            }
+        }
         }
 }

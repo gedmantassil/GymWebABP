@@ -24,6 +24,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { InputDialogComponent } from './input-dialog/input-dialog.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CardioModule } from './cardio/cardio.module';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 @NgModule({
   imports: [
@@ -34,6 +37,8 @@ import { InputDialogComponent } from './input-dialog/input-dialog.component';
     MatButtonModule,
     MatDialogModule,
     AppRoutingModule,
+    CardioModule,
+    NgxMaterialTimepickerModule,
     CoreModule.forRoot({
       environment,
       registerLocaleFn: registerLocale(),
@@ -54,7 +59,8 @@ import { InputDialogComponent } from './input-dialog/input-dialog.component';
     ToastrModule.forRoot({
                 positionClass: 'toast-bottom-right',
                 preventDuplicates: true,
-              })
+              }),
+    NgbModule
   ],
   declarations: [AppComponent, InputDialogComponent,],
   providers: [APP_ROUTE_PROVIDER, provideAnimationsAsync()],

@@ -40,7 +40,7 @@ function configureRoutes(routesService: RoutesService) {
         path: '/contacts',
         name: '::Menu:Contacts',
         iconClass: 'fas fa-address-book',
-        order: 4,
+        order: 5,
         layout: eLayoutType.application,
       },
       {
@@ -57,6 +57,14 @@ function configureRoutes(routesService: RoutesService) {
         parentName: '::Menu:Caliasthenics',
         layout: eLayoutType.application,
         requiredPolicy: 'Gymzii.Caliasthenics',
+      },
+      {
+        path: '/cardios',
+        name: '::Menu:Cardios',
+        iconClass: 'fas fa-heartbeat',
+        order: 4,
+        layout: eLayoutType.application,
+        requiredPolicy: 'Gymzii.Cardios',
       },
     ]);
   };

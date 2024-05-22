@@ -16,6 +16,7 @@ using Volo.Abp.SettingManagement.EntityFrameworkCore;
 using Volo.Abp.TenantManagement;
 using Volo.Abp.TenantManagement.EntityFrameworkCore;
 using Gymzii.Caliasthenics;
+using Gymzii.Cardios;
 
 namespace Gymzii.EntityFrameworkCore;
 
@@ -30,8 +31,8 @@ public class GymziiDbContext :
     /* Add DbSet properties for your Aggregate Roots / Entities here. */
     public DbSet<Exercise> Exercises { get; set; }
     public DbSet<Contact> Contacts { get; set; }
-
     public DbSet<Caliasthenic> Caliasthenics { get; set; }
+    public DbSet<Cardio> Cardios { get; set; }
 
     #region Entities from the modules
 
@@ -107,5 +108,12 @@ public class GymziiDbContext :
 			b.ConfigureByConvention(); //auto configure for the base class props
 			b.Property(x => x.Name).IsRequired().HasMaxLength(128);
 		});
-	}
+        builder.Entity<Cardio>(b =>
+        {
+            b.ToTable(GymziiConsts.DbTablePrefix + "Cardio",
+                GymziiConsts.DbSchema);
+            b.ConfigureByConvention(); //auto configure for the base class props
+            b.Property(x => x.Name).IsRequired().HasMaxLength(128);
+        });
+    }
 }

@@ -1,0 +1,104 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      <div class="col col-md-6">
+        <h5 class="card-title">{{ '::Menu:Cardios' | abpLocalization }}</h5>
+      </div>
+      <div class="text-end col col-md-6">
+        <div class="text-lg-end pt-2">
+          <button id="create" class="btn btn-primary" type="button" (click)="createCardio()">
+            <i class="fa fa-plus me-1"></i>
+            <span>{{ "::NewCardio" | abpLocalization }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <ngx-datatable class="bootstrap" [rows]="cardio.items" [count]="cardio.totalCount" [list]="list" [columnMode]="'force'"
+      [headerHeight]="50" [footerHeight]="50" [rowHeight]="50">
+      <ngx-datatable-column [name]="'::Actions' | abpLocalization" [maxWidth]="150" [sortable]="false">
+        <ng-template let-row="row" ngx-datatable-cell-template>
+          <div ngbDropdown container="body" class="d-inline-block">
+            <button class="btn btn-primary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+              ngbDropdownToggle>
+              <i class="fa fa-cog me-1"></i>{{ '::Actions' | abpLocalization }}
+            </button>
+            <div ngbDropdownMenu>
+              <button ngbDropdownItem (click)="editCardio(row.id)">
+                {{ '::Edit' | abpLocalization }}
+              </button>
+              <button ngbDropdownItem (click)="delete(row.id)">
+                {{ '::Delete' | abpLocalization }}
+              </button>
+            </div>
+          </div>
+        </ng-template>
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Name" [prop]="'name'" [sortable]="true">
+        <ng-template ngx-datatable-cell-template let-row="row">
+          {{ row.name }}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="Type" [prop]="'type'" [sortable]="true">
+        <ng-template ngx-datatable-cell-template let-row="row">
+          {{ '::Enum:CardioType.' + row.type | abpLocalization }}
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column name="Duration" [sortable]="true">
+        <ng-template ngx-datatable-cell-template let-row="row">
+          {{ formatDuration(row.maxTimeMinute, row.maxTimeSecond) }}
+        </ng-template>
+      </ngx-datatable-column>
+
+    </ngx-datatable>
+  </div>
+</div>
+
+<abp-modal [(visible)]="isModalOpen">
+  <ng-template #abpHeader>
+    <h3>{{ selectedCardio?.id ? '::Edit' : '::NewCardio' | abpLocalization }}</h3>
+  </ng-template>
+
+  <ng-template #abpBody>
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <div class="mt-2">
+        <label for="cardio-name">Name</label><span> * </span>
+        <input type="text" id="cardio-name" class="form-control" formControlName="name" autofocus />
+      </div>
+
+      <div class="mt-2">
+        <label for="cardio-type">Type</label><span> * </span>
+        <select class="form-control" id="cardio-type" formControlName="type">
+          <option [ngValue]="null">Select a cardio type</option>
+          <option [ngValue]="type.value" *ngFor="let type of cardioTypes">
+            {{ '::Enum:CardioType.' + type.value | abpLocalization }}
+          </option>
+        </select>
+      </div>
+
+      <div class="mt-2">
+        <label for="cardio-maxTimeMinute">Minutes</label><span> * </span>
+        <input type="number" id="cardio-maxTimeMinute" class="form-control me-1" placeholder="MM"
+          formControlName="maxTimeMinute" min="0" />
+      </div>
+      <div class="mt-2">
+        <label for="cardio-maxTimeSecond">Seconds</label><span> * </span>
+        <input type="number" id="cardio-maxTimeSecond" class="form-control" placeholder="SS"
+          formControlName="maxTimeSecond" min="0" max="59" />
+      </div>
+    </form>
+  </ng-template>
+
+  <ng-template #abpFooter>
+    <button type="button" class="btn btn-secondary" abpClose>
+      {{ '::Close' | abpLocalization }}
+    </button>
+    <button class="btn btn-primary" (click)="save()" [disabled]="form.invalid">
+      <i class="fa fa-check mr-1"></i>
+      {{ '::Save' | abpLocalization }}
+    </button>
+  </ng-template>
+</abp-modal>
