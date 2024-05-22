@@ -58,6 +58,14 @@ function configureRoutes(routesService: RoutesService) {
         layout: eLayoutType.application,
         requiredPolicy: 'Gymzii.Caliasthenics',
       },
+      {
+        path: '/cardios',
+        name: '::Menu:Cardio',
+        iconClass: 'fas fa-dumbbell',
+        order: 5,
+        layout: eLayoutType.application,
+        requiredPolicy: 'Gymzii.Cardios',
+      },
     ]);
   };
 }

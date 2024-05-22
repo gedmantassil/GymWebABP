@@ -1,4 +1,5 @@
 ﻿using Gymzii.Caliasthenics;
+using Gymzii.Cardios;
 using Gymzii.Contacts;
 using Gymzii.Exercises;
 using System;
@@ -17,14 +18,16 @@ namespace Gymzii
         private readonly IRepository<Exercise, Guid> _exerciseRepository;
         private readonly IRepository<Contact, Guid> _contactRepository;
 		private readonly IRepository<Caliasthenic, Guid> _caliasthenicRepository;
+		private readonly IRepository<Cardio, Guid> _cardioRepository;
 
 
-		public ExerciseDataSeederContributor(IRepository<Exercise, Guid> bookRepository, IRepository<Contact, Guid> contactRepository, IRepository<Caliasthenic, Guid> caliasthenicRepository)
+		public ExerciseDataSeederContributor(IRepository<Exercise, Guid> bookRepository, IRepository<Contact, Guid> contactRepository, IRepository<Caliasthenic, Guid> caliasthenicRepository, IRepository<Cardio, Guid> cardioRepository)
         {
             _exerciseRepository = bookRepository;
 			_contactRepository = contactRepository;
 			_caliasthenicRepository = caliasthenicRepository;
-		}
+            _cardioRepository = cardioRepository;
+        }
 
         public async Task SeedAsync(DataSeedContext context)
         {
@@ -107,6 +110,21 @@ namespace Gymzii
 					autoSave: true
 					);
 			}
-		}
+
+            if (await _cardioRepository.GetCountAsync() <= 0)
+            {
+                await _cardioRepository.InsertAsync(
+                    new Cardio
+                    {
+                        Name = "Shadow Boxing",
+                        Type = CardioType.Boxing,
+                        MaxTimeHours = 0,
+                        MaxTimeMinutes = 15,
+                        MaxTimeSeconds = 15
+                    },
+                    autoSave: true
+                    );
+            }
+        }
         }
 }

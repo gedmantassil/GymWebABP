@@ -20,6 +20,12 @@ public class GymziiPermissionDefinitionProvider : PermissionDefinitionProvider
         caliasthenicsPermission.AddChild(GymziiPermissions.Caliasthenics.Create, L("Permission:Caliasthenics.Create"));
         caliasthenicsPermission.AddChild(GymziiPermissions.Caliasthenics.Edit, L("Permission:Caliasthenics.Edit"));
         caliasthenicsPermission.AddChild(GymziiPermissions.Caliasthenics.Delete, L("Permission:Caliasthenics.Delete"));
+
+        var cardioPermission = myGroup.AddPermission(GymziiPermissions.Cardios.Default, L("Permission:Cardios"));
+        cardioPermission.AddChild(GymziiPermissions.Cardios.Create, L("Permission:Cardios.Create"));
+        cardioPermission.AddChild(GymziiPermissions.Cardios.Edit, L("Permission:Cardios.Edit"));
+        cardioPermission.AddChild(GymziiPermissions.Cardios.Delete, L("Permission:Cardios.Delete"));
+
     }
 
     private static LocalizableString L(string name)

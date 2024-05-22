@@ -46,7 +46,23 @@
     "Permission:Caliasthenics": "Calisthenic exercises management",
     "Permission:Caliasthenics.Create": "Creating new calisthenic exercises",
     "Permission:Caliasthenics.Edit": "Editing the calisthenic exercises",
-    "Permission:Caliasthenics.Delete": "Deleting the calisthenic exercises"
+    "Permission:Caliasthenics.Delete": "Deleting the calisthenic exercises",
+    "Menu:Cardio": "Cardio",
+    "Enum:CardioType.0": "Swimming",
+    "Enum:CardioType.1": "Walking",
+    "Enum:CardioType.2": "Cycling",
+    "Enum:CardioType.3": "Rowing",
+    "Enum:CardioType.4": "Boxing",
+    "Enum:CardioType.5": "Elliptical",
+    "Enum:CardioType.6": "Hiking",
+    "Enum:CardioType.7": "Dance",
+    "Enum:CardioType.8": "Jogging",
+    "Enum:CardioType.9": "Undefined",
+    "Permission:Cardios": "Cardio Management",
+    "Permission:Cardios.Create": "Creating new cardio",
+    "Permission:Cardios.Edit": "Editing cardio",
+    "Permission:Cardios.Delete": "Deleting cardio"
+
   }
 
 }
