@@ -20,4 +20,11 @@ public static class GymziiPermissions
         public const string Edit = Default + ".Edit";
         public const string Delete = Default + ".Delete";
     }
+    public static class Cardios
+    {
+        public const string Default = GroupName + ".Cardios";
+        public const string Create = Default + ".Create";
+        public const string Edit = Default + ".Edit";
+        public const string Delete = Default + ".Delete";
+    }
 }

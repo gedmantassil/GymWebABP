@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Gymzii.Caliasthenics;
+using Gymzii.Cardios;
 using Gymzii.Chat;
 using Gymzii.Contacts;
 using Gymzii.Exercises;
@@ -22,5 +23,8 @@ public class GymziiApplicationAutoMapperProfile : Profile
 
         CreateMap<ChatMessage, ChatMessageDto>();
         CreateMap<CreateChatMessageDto, ChatMessage>();
+
+        CreateMap<Cardio, CardioDto>();
+        CreateMap<CreateUpdateCardioDto, Cardio>();
     }
 }

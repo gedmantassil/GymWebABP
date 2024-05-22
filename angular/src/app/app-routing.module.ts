@@ -31,6 +31,7 @@ const routes: Routes = [
   { path: 'contacts', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
   { path: 'caliasthenics', loadChildren: () => import('./caliasthenic/caliasthenic.module').then(m => m.CaliasthenicModule) },
   { path: 'caliasthenics', loadChildren: () => import('./caliasthenic/caliasthenic.module').then(m => m.CaliasthenicModule) },
+  { path: 'cardios', loadChildren: () => import('./cardio/cardio.module').then(m => m.CardioModule) },
 ];
 
 @NgModule({
